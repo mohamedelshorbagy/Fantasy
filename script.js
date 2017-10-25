@@ -1,7 +1,7 @@
 function getPercentage(first,second,third) {
     let data = [];
     let arr = [first , second , third]; 
-    const prob = 23;
+    const prob = 33;
     for(let i = 0 ; i < prob ; i++) {
         let randomIndex = Math.floor(Math.random() * arr.length);
         data.push(arr[randomIndex]);
