@@ -2,8 +2,8 @@ function getPercentage(first,second,third) {
     let data = [];
     let arr = [first , second , third];
         let anyNumber = Math.floor(Math.random() * 100);
-        let prob = 17;
-        if(anyNumber > 10 && anyNumber%3 != 0) {
+        let prob = 71;
+        if(anyNumber > 5 && anyNumber%3 != 0) {
             prob = anyNumber;
         }
     for(let i = 0 ; i < prob ; i++) {
@@ -32,7 +32,8 @@ function getPercentage(first,second,third) {
 
     return {
         objPercentage,
-        arr    
+        arr,
+        prob    
     };
 
 }
@@ -53,15 +54,18 @@ function getInputData() {
         result += '<div class="alert alert-danger">All Inputs are required</div>';
        wrapper.innerHTML = result;
     } else {
+        let all = getPercentage(first.value, second.value, third.value);
        let percentage = getPercentage(first.value, second.value, third.value).objPercentage;
        let players = getPercentage(first.value, second.value, third.value).arr;
        let maxIndex = percentage.indexOf(Math.max(...percentage));
        let maxPercenatge = Math.max(...percentage);
        let maxPercentagePlayer = players[maxIndex];
+       let entropy = all.prob;
+
 
        result += `
         <ul class="list-group">
-            <li class="list-group-item choosen text-center">${maxPercentagePlayer}   -      ${maxPercenatge}%</li>
+            <li class="list-group-item choosen text-center">Winner Is : <b>${maxPercentagePlayer}   -      ${maxPercenatge}% </b></li>
         </ul>
        `
 
@@ -77,6 +81,15 @@ function getInputData() {
 
 
        }
+
+
+       result += `
+        <div class="alert alert-info text-center">
+            Number of Random Choices : <b>${entropy}</b>
+        </div>
+       `
+
+
 
        wrapper.innerHTML = result;
 

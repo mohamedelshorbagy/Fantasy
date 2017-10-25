@@ -20,8 +20,12 @@ button.btn.btn-success {
 
 
 .choosen {
-
     background-color: rgb(42 , 204 , 113);
     color:#FFF;
-    font-weight: bold;
 }   
+
+
+
+div.alert.alert-info {
+    margin-top: 35px;
+}
