@@ -2,12 +2,10 @@ function getPercentage(first,second,third) {
     let data = [];
     let arr = [first , second , third];
         let anyNumber = Math.floor(Math.random() * 100);
-        console.log(anyNumber);
-    let prob = 17;
+        let prob = 17;
         if(anyNumber > 10 && anyNumber%3 != 0) {
             prob = anyNumber;
         }
-        console.log(prob);
     for(let i = 0 ; i < prob ; i++) {
         let randomIndex = Math.floor(Math.random() * arr.length);
         data.push(arr[randomIndex]);
