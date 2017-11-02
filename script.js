@@ -1,9 +1,9 @@
-function getPercentage(first,second,third) {
+function getPercentage(givenData) {
     let data = [];
-    let arr = [first , second , third];
+    let arr = givenData;
         let anyNumber = Math.floor(Math.random() * 100);
         let prob = 71;
-        if(anyNumber > 5 && anyNumber%3 != 0) {
+        if(anyNumber > 5 && anyNumber%arr.length != 0 && anyNumber % 2 != 0) {
             prob = anyNumber;
         }
     for(let i = 0 ; i < prob ; i++) {
@@ -43,20 +43,18 @@ function getPercentage(first,second,third) {
 
 
 /* Get Dom Elements */
-var first = document.getElementById('first');
-var second = document.getElementById('second');
-var third = document.getElementById('third');
+var input = document.getElementById('all');
 var wrapper = document.getElementById('result');
 
 function getInputData() {
     var result = '';
-    if(first.value === '' || second.value === '' || third.value === '') {
+    if(input.value === '') {
         result += '<div class="alert alert-danger">All Inputs are required</div>';
        wrapper.innerHTML = result;
     } else {
-        let all = getPercentage(first.value, second.value, third.value);
-       let percentage = getPercentage(first.value, second.value, third.value).objPercentage;
-       let players = getPercentage(first.value, second.value, third.value).arr;
+        let all = getPercentage(input.value.split(','));
+       let percentage = all.objPercentage;
+       let players = all.arr;
        let maxIndex = percentage.indexOf(Math.max(...percentage));
        let maxPercenatge = Math.max(...percentage);
        let maxPercentagePlayer = players[maxIndex];
